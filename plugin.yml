@@ -5,3 +5,16 @@ api: 5.0.0
 author: Luthfi
 description: A simple auth plugin for PocketMine-MP
 website: https://github.com/LuthMC/XAuth
+
+permissions:
+  xauth.login:
+    description: Allow players to login.
+    default: true
+
+  xauth.register::
+    description: Allow players to register.
+    default: true
+
+  xauth.resetpassword:
+    description: Allow players to reset password.
+    deafult: true
