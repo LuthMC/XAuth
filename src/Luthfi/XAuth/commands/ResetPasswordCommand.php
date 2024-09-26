@@ -22,6 +22,11 @@ class ResetPasswordCommand extends Command {
             return false;
         }
 
+        if (!$sender->hasPermission("xauth.resetpassword")) {
+            $sender->sendMessage("You do not have permission to login.");
+            return false;
+        }
+        
         $name = strtolower($sender->getName());
         if (count($args) !== 2) {
             $sender->sendMessage($this->plugin->getCustomMessages()->get("reset_usage"));
