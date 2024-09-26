@@ -22,6 +22,11 @@ class LoginCommand extends Command {
             return false;
         }
 
+        if (!$sender->hasPermission("xauth.login")) {
+            $sender->sendMessage("You do not have permission to login.");
+            return false;
+        }
+        
         $name = strtolower($sender->getName());
         if (count($args) !== 1) {
             $sender->sendMessage($this->plugin->getCustomMessages()->get("login_usage"));
