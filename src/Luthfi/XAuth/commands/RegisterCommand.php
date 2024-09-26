@@ -5,6 +5,8 @@ namespace Luthfi\XAuth\commands;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
+use pocketmine\entity\Effect;
+use pocketmine\entity\EffectInstance;
 use Luthfi\XAuth\Main;
 
 class RegisterCommand extends Command {
@@ -41,11 +43,14 @@ class RegisterCommand extends Command {
             return false;
         }
 
+        $sender->addEffect(new EffectInstance(Effect::BLINDNESS(), 100, 1, false));
         $this->plugin->getPlayerData()->set($name, [
             "password" => $password,
-            "ip" => $sender->getNetworkSession()->getIp()
+            "ip" => $sender->getNetworkSession()->getIp(),
+            "pin_enabled" => false
         ]);
         $this->plugin->getPlayerData()->save();
+        $sender->removeEffect(Effect::BLINDNESS);
 
         $sender->sendMessage($this->plugin->getCustomMessages()->get("register_success"));
         return true;
