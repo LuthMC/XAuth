@@ -10,6 +10,7 @@ use pocketmine\utils\Config;
 use Luthfi\XAuth\commands\RegisterCommand;
 use Luthfi\XAuth\commands\LoginCommand;
 use Luthfi\XAuth\commands\ResetPasswordCommand;
+use Luthfi\XAuth\commands\ProfileCommand;
 
 class Main extends PluginBase implements Listener {
 
@@ -34,6 +35,7 @@ class Main extends PluginBase implements Listener {
         $this->getServer()->getCommandMap()->register("register", new RegisterCommand($this));
         $this->getServer()->getCommandMap()->register("login", new LoginCommand($this));
         $this->getServer()->getCommandMap()->register("resetpassword", new ResetPasswordCommand($this));
+        $this->getServer()->getCommandMap()->register("profile", new ProfileCommand($this));
     }
 
     private function createDefaultLanguageFile(string $fileName): void {
