@@ -12,7 +12,6 @@ class LoginCommand extends Command {
     private Main $plugin;
 
     public function __construct(Main $plugin) {
-        parent::__construct("login", "Login to your account", "/login <password>");
         $this->plugin = $plugin;
     }
 
