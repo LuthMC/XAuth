@@ -35,3 +35,4 @@ permissions:
     deafult: true
   xauth.profile:
     description: Allow players to setting their profile.
+    default: true
