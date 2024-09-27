@@ -21,6 +21,11 @@ class ProfileCommand extends Command {
             return false;
         }
 
+        if (!$sender->hasPermission("xauth.profile")) {
+            $sender->sendMessage("You do not have permission to see your profile.");
+            return false;
+        }
+        
         $this->showProfileForm($sender);
         return true;
     }
