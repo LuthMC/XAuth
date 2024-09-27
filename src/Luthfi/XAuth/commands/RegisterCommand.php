@@ -12,7 +12,6 @@ class RegisterCommand extends Command {
     private Main $plugin;
 
     public function __construct(Main $plugin) {
-        parent::__construct("register", "Register your account", "/register <password> <confirmpassword>");
         $this->plugin = $plugin;
     }
 
