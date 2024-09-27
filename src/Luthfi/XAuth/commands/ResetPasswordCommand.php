@@ -12,7 +12,6 @@ class ResetPasswordCommand extends Command {
     private Main $plugin;
 
     public function __construct(Main $plugin) {
-        parent::__construct("resetpassword", "Reset your password", "/resetpassword <oldpassword> <newpassword>");
         $this->plugin = $plugin;
     }
 
